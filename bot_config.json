@@ -1,0 +1,48 @@
+{
+	"pred_length": 20,
+	"max_num_preds": 5,
+	"sampling_args": {
+		"do_sample": true,
+		"temperature": 0.7,
+		"no_repeat_ngram_size": 4
+	},
+	"message_history": 10,
+	"//": "templates should end with {resp}",
+	"message_template": {
+		"prefix": "Here's our chat:\n\n\n",
+		"message": "{msg_name}: {msg_text}\n\n",
+		"postfix": "{bot_name}:{resp}"
+	},
+
+	"intention_template": "The following is a conversation with an AI:\n\nHuman: {msg_text}\n(The AI should send {resp}",
+	"response_types": [
+		{
+			"text": "a normal response",
+			"examples": [
+				"Hello",
+				"what do you think?",
+				"say something funny"
+			],
+			"weight": 0.23527854309750415
+		},
+		{
+			"text": "an emoji",
+			"examples": [
+				"what's your favorite emoji?",
+				"send an emoji"
+			],
+			"weight": 0.2391771374558037
+		},
+		{
+			"text": "a calculation",
+			"examples": [
+				"What's 1 + 1?",
+				"calculate 5 * 2 + 9",
+				"John has 4 apples, if he loses 2, how many will he have left?"
+			],
+			"weight": 0.23331174048946146
+		}
+	],
+
+	"empty_message_replacement": "..."
+}
